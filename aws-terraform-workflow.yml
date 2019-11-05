@@ -9,6 +9,8 @@ steps:
 - name: provision-s3-remote-state-bucket
   image: projectnebula/core
   input:
-    - apk --no-cache add python3 py3-setuptools &&
-      pip3 install awscli &&
+    - apk --no-cache add python3 curl &&
+      curl -O https://bootstrap.pypa.io/get-pip.py &&
+      python3 get-pip.py &&
+      pip3 install awscli --upgrade &&
       aws --version
