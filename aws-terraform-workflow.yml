@@ -13,4 +13,11 @@ steps:
       curl -O https://bootstrap.pypa.io/get-pip.py &&
       python3 get-pip.py &&
       pip3 install awscli --upgrade &&
-      aws --version
+      ni get -p {.credentials} &&
+      ni aws config
+      aws s3api list-buckets --query "Buckets[].Name"
+  spec:
+    credentials:
+      credentials:
+        $type: Secret
+        name: credentials
