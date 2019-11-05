@@ -1,0 +1,6 @@
+version: v1
+description: Nebula Deploy Demo To AWS
+
+parameters:
+  terraform_state_bucket: 
+    description: The name of the bucket you'd like to store terraform state in
