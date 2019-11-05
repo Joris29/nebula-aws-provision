@@ -14,7 +14,7 @@ steps:
       python3 get-pip.py &&
       pip3 install awscli --upgrade &&
       ni get -p {.credentials} &&
-      ni aws config
+      ni credentials config
       aws s3api list-buckets --query "Buckets[].Name"
   spec:
     credentials:
