@@ -2,5 +2,13 @@ version: v1
 description: Nebula Deploy Demo To AWS
 
 parameters:
-  terraform_state_bucket: 
+  terraform_state_bucket:
     description: The name of the bucket you'd like to store terraform state in
+
+steps:
+- name: provision-s3-remote-state-bucket
+  image: projectnebula/core
+  input:
+    - apk --no-cache add python3 py3-setuptools &&
+      pip3 install awscli &&
+      aws --version
