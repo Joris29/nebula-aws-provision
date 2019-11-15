@@ -44,6 +44,9 @@ steps:
       bucket: 
         $type: Parameter
         name: terraform_state_bucket
+      region: 
+        $type: Parameter
+        name: aws_region
     vars:
       aws_region:
         $type: Parameter
