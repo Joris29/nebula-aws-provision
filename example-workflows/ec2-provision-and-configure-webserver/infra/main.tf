@@ -4,6 +4,7 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
+  shared_credentials_file = "/workspace/credentials"
 }
 
 resource "aws_security_group" "web_sg" {

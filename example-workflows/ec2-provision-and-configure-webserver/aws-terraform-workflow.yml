@@ -39,8 +39,6 @@ steps:
   dependsOn:
     - provision-s3-remote-state-bucket
   image: projectnebula/terraform
-  input:
-    - export AWS_SHARED_CREDENTIALS_FILE=/workspace/credentials
   spec:
     backendConfig:
       bucket: 
