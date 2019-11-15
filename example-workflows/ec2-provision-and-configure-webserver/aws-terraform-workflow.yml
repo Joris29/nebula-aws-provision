@@ -81,8 +81,8 @@ steps:
   spec:
     type: plan
     name: bolt::apache
-    projectDir: aws-workflow-example/example-workflows/ec2-provision-and-configure-webserver/
-    modulePaths: [aws-workflow-example/example-workflows/ec2-provision-and-configure-webserver/,aws-workflow-example/example-workflows/ec2-provision-and-configure-webserver/bolt/modules]
+    projectDir: example-workflows/ec2-provision-and-configure-webserver/
+    modulePaths: [/workspace/repo/aws-workflow-example/example-workflows/ec2-provision-and-configure-webserver/,/workspace/repo/aws-workflow-example/example-workflows/ec2-provision-and-configure-webserver/bolt/modules]
     targets:
     - 54.171.228.19
     credentials:
