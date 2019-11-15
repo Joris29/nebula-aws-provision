@@ -12,6 +12,10 @@ resource "aws_security_group" "web_sg" {
   description = "Managed by Terraform"
   vpc_id      = local.workspace["vpc_id"]
 
+  tags = {
+    Name = "HelloWorldNebula"
+  }
+
   ingress {
     from_port   = 22
     to_port     = 22
