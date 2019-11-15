@@ -1,4 +1,4 @@
-plan ec2_provision_and_configure_webserver::apache (
+plan bolt::webserver (
   TargetSpec $nodes,
 ) {
   $nodes.apply_prep
