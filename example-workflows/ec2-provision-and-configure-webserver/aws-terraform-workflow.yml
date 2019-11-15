@@ -82,7 +82,6 @@ steps:
     type: plan
     name: bolt::webserver
     projectDir: example-workflows/ec2-provision-and-configure-webserver/
-    modulePaths: [example-workflows/ec2-provision-and-configure-webserver/,example-workflows/ec2-provision-and-configure-webserver/bolt/modules]
     targets:
     - 54.171.228.19
     credentials:
