@@ -6,7 +6,7 @@ locals {
     defaults = {
 	    vpc_id = ""
 	    aws_region = ""
-        key_name = ""
+      key_name = ""
     }
   }
 
