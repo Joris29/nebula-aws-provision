@@ -32,3 +32,27 @@ steps:
       credentials:
         $type: Secret
         name: credentials
+
+- name: provision-ec2-with-terraform
+  dependsOn:
+    - provision-s3-remote-state-bucket
+  image: projectnebula/terraform
+  spec:
+    backendConfig:
+      bucket: 
+        $type: Parameter
+        name: terraform_state_bucket
+    vars:
+      aws_region: eu-west-1
+      gcp_project: 
+        $type: Parameter
+        name: project
+    workspace: production
+    directory: example-workflows/ec2-provision-and-configure-webserver/infra/
+    credentials:
+      credentials:
+        $type: Secret
+        name: credentials
+    git:
+      name: aws-workflow-example
+      repository: https://github.com/Joris29/nebula-aws-provision.git
