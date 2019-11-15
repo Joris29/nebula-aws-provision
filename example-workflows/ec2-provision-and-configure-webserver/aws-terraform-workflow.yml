@@ -7,6 +7,9 @@ parameters:
     default: eu-west-1
   vpc_id:
     description: The AWS vpc id to deploy EC2 instance
+  ssh_key_name:
+    description: The AWS ssh key for the EC2 instance
+    default: nebula-bolt
   terraform_state_bucket:
     description: The name of the bucket you'd like to store terraform state in
     default: terraform-remote-jva-nebula
@@ -58,6 +61,9 @@ steps:
       aws_region:
         $type: Parameter
         name: aws_region
+      key_name:
+        $type: Parameter
+        name: ssh_key_name
     workspace: production
     directory: example-workflows/ec2-provision-and-configure-webserver/infra/
     credentials:
@@ -67,3 +73,21 @@ steps:
     git:
       name: aws-workflow-example
       repository: https://github.com/Joris29/nebula-aws-provision.git
+
+- name: configure-apache-bolt
+  dependsOn:
+    - provision-ec2-with-terraform
+  image: projectnebula/bolt-run
+  spec:
+    type: task
+    name: facts::bash
+    targets:
+    - 54.154.113.21
+    credentials:
+      id_rsa:
+        $type: Secret
+        name: id_rsa
+    transport:
+      type: ssh
+      user: ubuntu
+      privateKey: id_rsa

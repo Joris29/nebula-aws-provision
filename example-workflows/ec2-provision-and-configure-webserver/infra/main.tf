@@ -42,6 +42,7 @@ resource "aws_instance" "web" {
   ami                    = var.ec2_ami
   instance_type          = var.ec2_machine_type
   vpc_security_group_ids = [aws_security_group.web_sg.id]
+  key_name               = local.workspace["key_name"]
 
   tags = {
     Name = "HelloWorldNebula"
