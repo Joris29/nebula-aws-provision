@@ -3,7 +3,9 @@ description: Nebula Deploy Demo To AWS
 
 parameters:
   aws_region:
-    description: The AWS region to deploy
+    description: The AWS region to deploy S3 bucket + EC2 instance
+  vpc_id:
+    description: The AWS vpc id to deploy EC2 instance
   terraform_state_bucket:
     description: The name of the bucket you'd like to store terraform state in
 
@@ -43,10 +45,12 @@ steps:
         $type: Parameter
         name: terraform_state_bucket
     vars:
-      aws_region: eu-west-1
-      gcp_project: 
+      aws_region:
         $type: Parameter
-        name: project
+        name: aws_region
+      vpc_id: 
+        $type: Parameter
+        name: vpc_id
     workspace: production
     directory: example-workflows/ec2-provision-and-configure-webserver/infra/
     credentials:
