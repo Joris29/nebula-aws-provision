@@ -3,14 +3,14 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws_region
+  region = local.workspace["aws_region"]
   shared_credentials_file = "/workspace/credentials"
 }
 
 resource "aws_security_group" "web_sg" {
   name        = "Web SG"
   description = "Managed by Terraform"
-  vpc_id      = var.vpc_id
+  vpc_id      = local.workspace["vpc_id"]
 
   ingress {
     from_port   = 22
