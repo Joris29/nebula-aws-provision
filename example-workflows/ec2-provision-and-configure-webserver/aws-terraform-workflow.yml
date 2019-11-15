@@ -82,7 +82,7 @@ steps:
     type: task
     name: facts::bash
     targets:
-    - 54.154.113.21
+    - 54.171.228.19
     credentials:
       id_rsa:
         $type: Secret
