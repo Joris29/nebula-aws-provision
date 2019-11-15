@@ -2,6 +2,8 @@ version: v1
 description: Nebula Deploy Demo To AWS
 
 parameters:
+  aws_region:
+    description: The AWS region to deploy
   terraform_state_bucket:
     description: The name of the bucket you'd like to store terraform state in
 
@@ -13,11 +15,19 @@ steps:
       curl -O https://bootstrap.pypa.io/get-pip.py &&
       python3 get-pip.py &&
       pip3 install awscli --upgrade &&
+      BUCKET_REGION=$(ni get -p {.region}) &&
+      BUCKET_NAME=$(ni get -p {.bucket}) &&
       ni get -p {.credentials} &&
       ni credentials config &&
       export AWS_CONFIG_FILE=/workspace/credentials &&
-      aws s3api list-buckets --query "Buckets[].Name"
+      if aws s3api list-buckets --query "Buckets[].Name" | grep $BUCKET_NAME; then exit 0; else aws s3api create-bucket --bucket $BUCKET_NAME --region $BUCKET_REGION --create-bucket-configuration LocationConstraint=$BUCKET_REGION; fi
   spec:
+    region:
+      $type: Parameter
+      name: aws_region
+    bucket: 
+      $type: Parameter
+      name: terraform_state_bucket
     credentials:
       credentials:
         $type: Secret
