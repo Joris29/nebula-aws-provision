@@ -5,6 +5,9 @@ parameters:
   backend_key:
     description: The key for the S3 backend key
     default: nebula
+  shared_credentials_file:
+    description: The location of the shared credentials file
+    default: /workspace/credentials
   aws_region:
     description: The AWS region to deploy S3 bucket + EC2 instance
     default: eu-west-1
@@ -55,6 +58,9 @@ steps:
       region: 
         $type: Parameter
         name: aws_region
+      shared_credentials_file:
+        $type: Parameter
+        name: shared_credentials_file = "/workspace/credentials"
     vars:
       aws_region:
         $type: Parameter
