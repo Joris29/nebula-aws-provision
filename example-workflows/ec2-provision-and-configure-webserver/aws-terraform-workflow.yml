@@ -39,6 +39,10 @@ steps:
   dependsOn:
     - provision-s3-remote-state-bucket
   image: projectnebula/terraform
+  input:
+    - ni get -p {.credentials} &&
+      ni credentials config &&
+      export AWS_CONFIG_FILE=/workspace/credentials
   spec:
     backendConfig:
       bucket: 
