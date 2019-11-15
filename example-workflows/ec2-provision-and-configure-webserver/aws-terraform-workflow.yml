@@ -60,7 +60,7 @@ steps:
         name: aws_region
       shared_credentials_file:
         $type: Parameter
-        name: shared_credentials_file = "/workspace/credentials"
+        name: shared_credentials_file
     vars:
       aws_region:
         $type: Parameter
