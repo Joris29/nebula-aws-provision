@@ -2,8 +2,12 @@ version: v1
 description: Nebula Deploy Demo To AWS
 
 parameters:
+  backend_key:
+    description: The key for the S3 backend key
+    default: nebula
   aws_region:
     description: The AWS region to deploy S3 bucket + EC2 instance
+    default: eu-west-1
   vpc_id:
     description: The AWS vpc id to deploy EC2 instance
   terraform_state_bucket:
@@ -44,6 +48,9 @@ steps:
       bucket: 
         $type: Parameter
         name: terraform_state_bucket
+      key:
+        $type: Parameter
+        name: backend_key
       region: 
         $type: Parameter
         name: aws_region
