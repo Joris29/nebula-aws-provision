@@ -1,9 +1,11 @@
 variable "vpc_id" {
   description = "VPC ID"
+  default = ""
 }
 
 variable "aws_region" {
   description = "aws region"
+  default = ""
 }
 
 variable "ec2_machine_type" {
