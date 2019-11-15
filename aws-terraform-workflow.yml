@@ -20,7 +20,7 @@ steps:
       ni get -p {.credentials} &&
       ni credentials config &&
       export AWS_CONFIG_FILE=/workspace/credentials &&
-      if aws s3api list-buckets --query "Buckets[].Name" | grep $BUCKET_NAME; then exit 0; else aws s3api create-bucket --bucket $BUCKET_NAME --region $BUCKET_REGION --create-bucket-configuration LocationConstraint=$BUCKET_REGION; fi
+      if aws s3api list-buckets --query "Buckets[].Name" | grep $BUCKET_NAME; then exit 0; else aws s3api create-bucket --bucket $BUCKET_NAME --region $BUCKET_REGION --create-bucket-configuration LocationConstraint=$BUCKET_REGION && exit 0; fi
   spec:
     region:
       $type: Parameter
