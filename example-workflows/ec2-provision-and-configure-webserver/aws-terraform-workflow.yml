@@ -91,3 +91,4 @@ steps:
       type: ssh
       user: ubuntu
       privateKey: id_rsa
+      verifyHost: false
