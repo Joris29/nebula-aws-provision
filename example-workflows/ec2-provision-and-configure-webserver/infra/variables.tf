@@ -1,11 +1,15 @@
-variable "vpc_id" {
-  description = "VPC ID"
-  default = ""
-}
+locals {
+  # Workaround for https://github.com/hashicorp/terraform/issues/15966
+  workspace-settings = {
+    file = "workspace.${terraform.workspace}.tfvars.json"
 
-variable "aws_region" {
-  description = "aws region"
-  default = ""
+    defaults = {
+	    vpc_id = ""
+	    aws_region = ""
+    }
+  }
+
+  workspace = "${merge(local.workspace-settings.defaults, jsondecode(fileexists(local.workspace-settings.file) ? file(local.workspace-settings.file) : "{}"))}"
 }
 
 variable "ec2_machine_type" {

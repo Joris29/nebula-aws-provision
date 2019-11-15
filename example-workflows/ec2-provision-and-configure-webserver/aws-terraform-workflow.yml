@@ -2,12 +2,6 @@ version: v1
 description: Nebula Deploy Demo To AWS
 
 parameters:
-  backend_key:
-    description: The key for the S3 backend key
-    default: nebula
-  shared_credentials_file:
-    description: The location of the shared credentials file
-    default: /workspace/credentials
   aws_region:
     description: The AWS region to deploy S3 bucket + EC2 instance
     default: eu-west-1
@@ -52,15 +46,11 @@ steps:
       bucket: 
         $type: Parameter
         name: terraform_state_bucket
-      key:
-        $type: Parameter
-        name: backend_key
+      key: nebula
       region: 
         $type: Parameter
         name: aws_region
-      shared_credentials_file:
-        $type: Parameter
-        name: shared_credentials_file
+      shared_credentials_file: /workspace/credentials
     vars:
       vpc_id: 
         $type: Parameter
