@@ -79,8 +79,9 @@ steps:
     - provision-ec2-with-terraform
   image: projectnebula/bolt-run
   spec:
-    type: task
-    name: facts::bash
+    type: plan
+    name: ec2-provision-and-configure-webserver::apache
+    projectDir: example-workflows/ec2-provision-and-configure-webserver/
     targets:
     - 54.171.228.19
     credentials:
@@ -92,3 +93,6 @@ steps:
       user: ubuntu
       privateKey: id_rsa
       verifyHost: false
+    git:
+      name: aws-workflow-example
+      repository: https://github.com/Joris29/nebula-aws-provision.git
