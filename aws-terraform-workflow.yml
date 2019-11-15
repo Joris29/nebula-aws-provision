@@ -15,6 +15,7 @@ steps:
       pip3 install awscli --upgrade &&
       ni get -p {.credentials} &&
       ni credentials config &&
+      export AWS_CONFIG_FILE=/workspace/credentials &&
       aws s3api list-buckets --query "Buckets[].Name"
   spec:
     credentials:
