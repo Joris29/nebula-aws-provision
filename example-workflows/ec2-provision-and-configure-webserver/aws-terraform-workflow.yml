@@ -62,12 +62,12 @@ steps:
         $type: Parameter
         name: shared_credentials_file
     vars:
-      aws_region:
-        $type: Parameter
-        name: aws_region
       vpc_id: 
         $type: Parameter
         name: vpc_id
+      aws_region:
+        $type: Parameter
+        name: aws_region
     workspace: production
     directory: example-workflows/ec2-provision-and-configure-webserver/infra/
     credentials:
