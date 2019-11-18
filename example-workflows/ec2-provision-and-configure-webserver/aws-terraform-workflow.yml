@@ -80,7 +80,7 @@ steps:
   image: projectnebula/bolt-run
   spec:
     type: plan
-    name: bolt::webserver
+    name: example::webserver
     projectDir: example-workflows/ec2-provision-and-configure-webserver/
     targets:
       $type: Output
