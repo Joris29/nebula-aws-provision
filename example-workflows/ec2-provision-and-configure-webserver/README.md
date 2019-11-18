@@ -1,4 +1,4 @@
-<h1>Install apache to EC2 instance on AWS with bolt and provision with terraform</h1>
+<h1>Installs apache to an EC2 instance on AWS with bolt and provision with terraform</h1>
 
 <p>This sample workflow installs apache on an EC2 instance on AWS. The workflow provisions the EC2 instance with a security group to AWS with terraform, the terraform state will be stored in a S3 bucket.</p>
 
