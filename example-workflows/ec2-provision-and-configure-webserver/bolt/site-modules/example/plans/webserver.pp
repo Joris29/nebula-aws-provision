@@ -1,4 +1,4 @@
-plan bolt::webserver (
+plan example::webserver (
   TargetSpec $nodes,
 ) {
   $nodes.apply_prep
