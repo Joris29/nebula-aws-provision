@@ -95,6 +95,7 @@ steps:
       user: ubuntu
       privateKey: id_rsa
       verifyHost: false
+      run-as: root
     git:
       name: aws-workflow-example
       repository: https://github.com/Joris29/nebula-aws-provision.git
