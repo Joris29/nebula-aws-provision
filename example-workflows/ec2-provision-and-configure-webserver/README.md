@@ -21,11 +21,11 @@
         <li><strong>KEY:</strong> credentials</li>
         <li><strong>VALUE:</strong> Enter your base64 encoded AWS account</li>
     </ul>
-        <p>Example:</p>
+        </br><p>Example:</p>
         [default]</br>
         aws_access_key_id = RANDOMKEY</br>
         aws_secret_access_key = RANDOMKEY</br>
-        <p>Encode with base64:</p>
+        </br><p>Encode with base64:</p>
         W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkID0gUkFORE9NS0VZCmF3c19zZWNyZXRfYWNjZXNzX2tleSA9IFJBTkRPTUtFWQ==
 </ul>
 </br>
@@ -37,7 +37,7 @@
         <li><strong>KEY:</strong> id_rsa</li>
         <li><strong>VALUE:</strong> Enter your private key content</li>
     </ul>
-        <p>Example:</p>
+        </br><p>Example:</p>
         -----BEGIN RSA PRIVATE KEY-----</br>
         RANDOMSTRING</br>
         -----END RSA PRIVATE KEY-----
@@ -65,5 +65,5 @@
 </ol>
 <p>Congratulations! You've installed apache to an EC2 using Puppet Bolt and Terraform.</p>
 <p align="center">
-<img src="ec2-provision-and-configure-webserver.png" alt="AWS WORKFLOW" />
+<img src="ec2-provision-and-configure-webserver.png" />
 </p>
